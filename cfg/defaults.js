@@ -30,7 +30,7 @@ function getDefaultModules() {
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
+        loader: 'json'
       },
       {
         test: /\.sass/,
@@ -38,7 +38,7 @@ function getDefaultModules() {
       },
       {
         test: /\.scss/,
-        loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version"]}!sass-loader?outputStyle=expanded'
+        loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
       },
       {
         test: /\.less/,

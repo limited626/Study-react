@@ -1,0 +1,141 @@
+html,body{
+  width:100%;
+  height:100%;
+  background-color:#222;
+}
+
+.content{
+  width:100%;
+  height:100%;
+}
+
+img{
+  width:240px;
+}
+/* stage -- start*/
+.stage{
+  position:relative;
+
+  width:100%;
+  height:100%;
+}
+
+/*stage -- end*/
+
+/*image -- start*/
+.img-sec{
+  position:relative;
+
+  width:100%;
+  height:100%;
+  overflow:hidden;
+
+  background-color:#ddd;
+
+  @at-root{
+    .img-figure{
+      position:absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      width:320px;
+      height:460px;
+      margin:0;
+      background-color:#fff;
+      box-sizing:border-box;//若有padding,padding算在宽高里边了
+
+      cursor: pointer;
+      transform-origin: 0 50% 0;
+      transform-style: preserve-3d;
+      perspective: 1800px;
+
+      //用transition来控制旋转
+      transition:transform .6s ease-in-out,left .6s ease-in-out,top .6s ease-in-out;
+
+      &.is-inverse{
+        transform: translate(320px) rotateY(180deg);
+
+      }
+
+    }
+    figcaption{
+      text-align:center;
+
+
+      .img-title{
+        margin:20px 0 0 0;
+
+        color:#a7a0a2;
+        font-size:16px;
+      }
+      .img-back{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding: 30px;
+        box-sizing: border-box;
+        text-align: center;
+        color: #666;
+        transform:rotateY(180deg) translateZ(1px);
+        background: #fff;
+        backface-visibility: hidden;
+      }
+    }
+  }
+}
+
+/*image -- end*/
+
+/*controller -- start*/
+.controller-nav{
+  position:absolute;
+  left:0;
+  bottom:30px;
+  z-index:101;
+
+  width:100%;
+  text-align:center;
+
+  @at-root{
+    .controller-unit{
+      display:inline-block;
+      margin:0 5px;
+      width:30px;
+      height:30px;
+      text-align:center;
+      cursor:pointer;
+      background-color:#aaa;
+      border-radius:50%;
+      transform-origin: 0 50% 0;
+      transform:scale(.5);
+      vertical-align:middle;
+      transition:transform .6s ease-in-out,background-color .3s;
+
+      &.is-center{
+        background-color:#5CACEE;
+        transform:scale(1);
+
+        &::after{
+          display: block;
+          width: 6px;
+          height: 6px;
+          border-radius: 3px;
+          background-color: red;
+          line-height: 6px;
+          -webkit-font-smoothing:antialiased;
+          -moz-osx-font-smoothing:grayscale;
+
+
+        }
+        &.is-inverse{
+          background-color:#76EEC6;
+          transform:translate(320) rotateY(180deg);
+        }
+      }
+    }
+  }
+
+}

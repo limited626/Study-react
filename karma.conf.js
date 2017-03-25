@@ -25,6 +25,9 @@ module.exports = function(config) {
     webpackServer: {
       noInfo: true
     },
+    plugins: [
+      new webpack.HotModuleReplacementPlugin()
+    ],
     coverageReporter: {
       dir: 'coverage/',
       reporters: [
